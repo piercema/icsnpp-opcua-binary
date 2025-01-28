@@ -1,5 +1,5 @@
 # @TEST-EXEC: zeek -C -r ${TRACES}/open62541_client-server_mainloop-not-localhost-non-standard-port.pcap %INPUT
-# @TEST-EXEC: zeek_cut _n user_token_link_id < opcua_binary_get_endpoints_user_token.log > opcua_binary_get_endpoints_user_token.tmp && mv opcua_binary_get_endpoints_user_token.tmp opcua_binary_get_endpoints_user_token.log
+# @TEST-EXEC: zeek-cut -n user_token_link_id < opcua_binary_get_endpoints_user_token.log > opcua_binary_get_endpoints_user_token.tmp && mv opcua_binary_get_endpoints_user_token.tmp opcua_binary_get_endpoints_user_token.log
 # @TEST-EXEC: zeek-cut -n opcua_link_id locale_link_id profile_uri_link_id endpoint_description_link_id < opcua_binary_get_endpoints.log > opcua_binary_get_endpoints.tmp && mv opcua_binary_get_endpoints.tmp opcua_binary_get_endpoints.log
 # @TEST-EXEC: zeek-cut -n endpoint_description_link_id user_token_link_id < opcua_binary_get_endpoints_description.log > opcua_binary_get_endpoints_description.tmp && mv opcua_binary_get_endpoints_description.tmp opcua_binary_get_endpoints_description.log
 # @TEST-EXEC: zeek-cut -n opcua_link_id < opcua_binary_opensecure_channel.log > opcua_binary_opensecure_channel.tmp && mv opcua_binary_opensecure_channel.tmp opcua_binary_opensecure_channel.log
@@ -21,7 +21,7 @@
 # @TEST-EXEC: zeek-cut -n opcua_link_id  < opcua_binary_close_session.log > opcua_binary_close_session.tmp && mv opcua_binary_close_session.tmp opcua_binary_close_session.log
 # @TEST-EXEC: zeek-cut -n opcua_link_id  discovery_profile_link_id endpoint_link_id < opcua_binary_create_session.log > opcua_binary_create_session.tmp && mv opcua_binary_create_session.tmp opcua_binary_create_session.log
 # @TEST-EXEC: zeek-cut -n opcua_link_id req_status_code_link_id write_results_variant_metadata_link_id res_status_code_link_id diag_info_link_id < opcua_binary_write.log > opcua_binary_write.tmp && mv opcua_binary_write.tmp opcua_binary_write.log
-# @TEST-EXEC: btes--diff opcua_binary_get_endpoints_user_token.log
+# @TEST-EXEC: btest-diff opcua_binary_get_endpoints_user_token.log
 # @TEST-EXEC: btest-diff opcua_binary_get_endpoints.log
 # @TEST-EXEC: btest-diff opcua_binary_get_endpoints_description.log
 # @TEST-EXEC: btest-diff opcua_binary_opensecure_channel.log
