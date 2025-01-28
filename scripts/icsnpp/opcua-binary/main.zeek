@@ -100,7 +100,7 @@ redef likely_server_ports += { ports };
 
 event zeek_init() &priority=5
    {
-   Log::create_stream(ICSNPP_OPCUA_Binary::LOG,                                                     [$columns=OPCUA_Binary::Info,                               $path="opcua-binary",                                                    $policy=log_policy_opcua_binary]);
+   Log::create_stream(ICSNPP_OPCUA_Binary::LOG,                                                     [$columns=OPCUA_Binary::Info,                               $path="opcua_binary",                                                    $policy=log_policy_opcua_binary]);
 
    Log::create_stream(ICSNPP_OPCUA_Binary::LOG_DIAG_INFO,                                           [$columns=OPCUA_Binary::DiagnosticInfoDetail,               $path="opcua_binary_diag_info_detail",                                   $policy=log_policy_diag_info_detail]);
    Log::create_stream(ICSNPP_OPCUA_Binary::LOG_STATUS_CODE,                                         [$columns=OPCUA_Binary::StatusCodeDetail,                   $path="opcua_binary_status_code_detail",                                 $policy=log_policy_status_code_detail]);
